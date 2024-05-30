@@ -3,7 +3,8 @@ import { IconNavBookmark } from "@icons/IconNavBookmark";
 import { IconNavHome } from "@icons/IconNavHome";
 import { IconNavMovies } from "@icons/IconNavMovies";
 import { IconNavTvSeries } from "@icons/IconNavTvSeries";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import NavbarLink from "./NavbarLink";
 
 const Navbar = () => {
   return (
@@ -12,46 +13,18 @@ const Navbar = () => {
         <IconLogo />
       </Link>
       <div className="flex gap-5">
-        <NavLink
-          to={"/"}
-          className={({ isActive }) =>
-            isActive
-              ? "text-app-white"
-              : "text-app-light-blue hover:text-app-red"
-          }
-        >
+        <NavbarLink to={"/"}>
           <IconNavHome />
-        </NavLink>
-        <NavLink
-          to={"movies"}
-          className={({ isActive }) =>
-            isActive
-              ? "text-app-white"
-              : "text-app-light-blue hover:text-app-red"
-          }
-        >
+        </NavbarLink>
+        <NavbarLink to={"movies"}>
           <IconNavMovies />
-        </NavLink>
-        <NavLink
-          to={"tv"}
-          className={({ isActive }) =>
-            isActive
-              ? "text-app-white"
-              : "text-app-light-blue hover:text-app-red"
-          }
-        >
+        </NavbarLink>
+        <NavbarLink to={"tv"}>
           <IconNavTvSeries />
-        </NavLink>
-        <NavLink
-          to={"bookmarked"}
-          className={({ isActive }) =>
-            isActive
-              ? "text-app-white"
-              : "text-app-light-blue hover:text-app-red"
-          }
-        >
+        </NavbarLink>
+        <NavbarLink to={"bookmarked"}>
           <IconNavBookmark />
-        </NavLink>
+        </NavbarLink>
       </div>
       <Link to={"/profile"}>
         <img
