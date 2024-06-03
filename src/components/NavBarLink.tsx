@@ -1,11 +1,11 @@
 import { PropsWithChildren } from "react";
 import { NavLink, To } from "react-router-dom";
 
-interface NavbarLinkProps {
+interface NavBarLinkProps {
   to: To;
 }
 
-const NavbarLink = ({ children, to }: PropsWithChildren<NavbarLinkProps>) => {
+const NavBarLink = ({ children, to }: PropsWithChildren<NavBarLinkProps>) => {
   return (
     <NavLink
       to={to}
@@ -17,4 +17,4 @@ const NavbarLink = ({ children, to }: PropsWithChildren<NavbarLinkProps>) => {
     </NavLink>
   );
 };
-export default NavbarLink;
+export default NavBarLink;

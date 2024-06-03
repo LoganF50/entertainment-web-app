@@ -4,7 +4,7 @@ import { IconNavHome } from "@icons/IconNavHome";
 import { IconNavMovies } from "@icons/IconNavMovies";
 import { IconNavTvSeries } from "@icons/IconNavTvSeries";
 import { Link } from "react-router-dom";
-import NavbarLink from "./NavbarLink";
+import NavBarLink from "./NavBarLink";
 
 const Navbar = () => {
   return (
@@ -13,18 +13,18 @@ const Navbar = () => {
         <IconLogo />
       </Link>
       <div className="flex gap-5">
-        <NavbarLink to={"/"}>
+        <NavBarLink to={"/"}>
           <IconNavHome />
-        </NavbarLink>
-        <NavbarLink to={"movies"}>
+        </NavBarLink>
+        <NavBarLink to={"movies"}>
           <IconNavMovies />
-        </NavbarLink>
-        <NavbarLink to={"tv"}>
+        </NavBarLink>
+        <NavBarLink to={"tv"}>
           <IconNavTvSeries />
-        </NavbarLink>
-        <NavbarLink to={"bookmarked"}>
+        </NavBarLink>
+        <NavBarLink to={"bookmarked"}>
           <IconNavBookmark />
-        </NavbarLink>
+        </NavBarLink>
       </div>
       <Link to={"/profile"}>
         <img
