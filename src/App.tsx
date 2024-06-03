@@ -1,4 +1,5 @@
 import PageLayout from "@layouts/PageLayout";
+import { Home } from "@pages/Home";
 import { ShowProvider } from "@providers/showProvider";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
@@ -9,7 +10,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <div>home</div>,
+        element: <Home />,
       },
       {
         path: "movies",
