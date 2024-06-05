@@ -11,10 +11,10 @@ const ShowSection = ({
   title,
 }: PropsWithChildren<ShowSectionProps>) => {
   return (
-    <div>
+    <div className="flex flex-col gap-1">
       <h1 className="text-heading-md">{title}</h1>
       <div
-        className={`flex gap-1 ${
+        className={`flex gap-3 ${
           !shouldWrap
             ? "flex-no-wrap overflow-x-auto"
             : "flex-wrap overflow-y-auto"

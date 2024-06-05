@@ -1,5 +1,6 @@
 import { SearchBar } from "@components/SearchBar";
 import { ShowSection } from "@components/ShowSection";
+import { TrendingShowCard } from "@components/TrendingShowCard";
 import { useShows } from "@hooks/useShows";
 import { useEffect, useState } from "react";
 
@@ -52,12 +53,18 @@ const Home = () => {
         <>
           <ShowSection title={"Trending"} shouldWrap={false}>
             {getTrendingShows().map((show) => {
-              return <div>{show.title}</div>;
+              return (
+                <TrendingShowCard
+                  key={show.title}
+                  show={show}
+                  handleBookmark={toggleBookmark}
+                />
+              );
             })}
           </ShowSection>
           <ShowSection title={"Recommended for you"}>
             {getRecommendedShows().map((show) => {
-              return <div>{show.title}</div>;
+              return <div key={show.title}>{show.title}</div>;
             })}
           </ShowSection>
         </>
@@ -68,7 +75,7 @@ const Home = () => {
           } for '${search}'`}
         >
           {displayedShows.map((show) => {
-            return <div>{show.title}</div>;
+            return <div key={show.title}>{show.title}</div>;
           })}
         </ShowSection>
       )}
