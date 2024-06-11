@@ -9,7 +9,7 @@ interface SearchBarProps {
 
 const SearchBar = ({ placeholder, value, onChange }: SearchBarProps) => {
   return (
-    <div className="flex gap-4 items-center text-heading-md">
+    <div className="flex gap-4 items-center text-body-md">
       <label htmlFor="search">
         <IconSearch />
       </label>
