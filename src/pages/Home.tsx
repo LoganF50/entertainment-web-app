@@ -95,7 +95,20 @@ const Home = () => {
           } for '${search}'`}
         >
           {displayedShows.map((show) => {
-            return <div key={show.title}>{show.title}</div>;
+            return (
+              <ShowCard
+                key={show.title}
+                thumbnailURL={show.thumbnail.regular.small}
+                isBookmarked={show.isBookmarked}
+                title={show.title}
+                handleBookmark={toggleBookmark}
+                category={show.category}
+                rating={show.rating}
+                year={show.year}
+                handleDetails={() => alert(`go to details: ${show.title}`)}
+                handlePlay={() => alert(`play show: ${show.title}`)}
+              />
+            );
           })}
         </ShowSection>
       )}
