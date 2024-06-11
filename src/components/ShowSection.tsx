@@ -11,7 +11,7 @@ const ShowSection = ({
   title,
 }: PropsWithChildren<ShowSectionProps>) => {
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-4 py-2">
       <h1 className="text-heading-md">{title}</h1>
       <div
         className={`flex gap-3 ${
