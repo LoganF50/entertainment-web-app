@@ -1,6 +1,6 @@
 import { SearchBar } from "@components/SearchBar";
+import { ShowCard, TrendingShowCard } from "@components/ShowCard";
 import { ShowSection } from "@components/ShowSection";
-import { TrendingShowCard } from "@components/TrendingShowCard";
 import { useShows } from "@hooks/useShows";
 import { useEffect, useState } from "react";
 
@@ -56,15 +56,35 @@ const Home = () => {
               return (
                 <TrendingShowCard
                   key={show.title}
-                  show={show}
                   handleBookmark={toggleBookmark}
+                  handlePlay={() => alert(`play show: ${show.title}`)}
+                  category={show.category}
+                  isBookmarked={show.isBookmarked}
+                  rating={show.rating}
+                  thumbnailURL={show.thumbnail.trending!.small}
+                  title={show.title}
+                  year={show.year}
+                  handleDetails={() => alert(`go to details: ${show.title}`)}
                 />
               );
             })}
           </ShowSection>
           <ShowSection title={"Recommended for you"}>
             {getRecommendedShows().map((show) => {
-              return <div key={show.title}>{show.title}</div>;
+              return (
+                <ShowCard
+                  key={show.title}
+                  handleBookmark={toggleBookmark}
+                  handlePlay={() => alert(`play show: ${show.title}`)}
+                  category={show.category}
+                  isBookmarked={show.isBookmarked}
+                  rating={show.rating}
+                  thumbnailURL={show.thumbnail.regular.small}
+                  title={show.title}
+                  year={show.year}
+                  handleDetails={() => alert(`go to details: ${show.title}`)}
+                />
+              );
             })}
           </ShowSection>
         </>
