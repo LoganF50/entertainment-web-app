@@ -1,5 +1,7 @@
 import { SearchBar } from "@components/SearchBar";
 import { ShowCard, TrendingShowCard } from "@components/ShowCard";
+import { ShowCarousel } from "@components/ShowCarousel";
+import { ShowGrid } from "@components/ShowGrid";
 import { ShowSection } from "@components/ShowSection";
 import { useShows } from "@hooks/useShows";
 import { useEffect, useState } from "react";
@@ -49,40 +51,44 @@ const Home = () => {
       {search === "" ? (
         <>
           <ShowSection title={"Trending"}>
-            {getTrendingShows().map((show) => {
-              return (
-                <TrendingShowCard
-                  key={show.title}
-                  handleBookmark={toggleBookmark}
-                  handlePlay={() => alert(`play show: ${show.title}`)}
-                  category={show.category}
-                  isBookmarked={show.isBookmarked}
-                  rating={show.rating}
-                  thumbnailURL={show.thumbnail.trending!.small}
-                  title={show.title}
-                  year={show.year}
-                  handleDetails={() => alert(`go to details: ${show.title}`)}
-                />
-              );
-            })}
+            <ShowCarousel translateAmount={300}>
+              {getTrendingShows().map((show) => {
+                return (
+                  <TrendingShowCard
+                    key={show.title}
+                    handleBookmark={toggleBookmark}
+                    handlePlay={() => alert(`play show: ${show.title}`)}
+                    category={show.category}
+                    isBookmarked={show.isBookmarked}
+                    rating={show.rating}
+                    thumbnailURL={show.thumbnail.trending!.small}
+                    title={show.title}
+                    year={show.year}
+                    handleDetails={() => alert(`go to details: ${show.title}`)}
+                  />
+                );
+              })}
+            </ShowCarousel>
           </ShowSection>
           <ShowSection title={"Recommended for you"}>
-            {getRecommendedShows().map((show) => {
-              return (
-                <ShowCard
-                  key={show.title}
-                  handleBookmark={toggleBookmark}
-                  handlePlay={() => alert(`play show: ${show.title}`)}
-                  category={show.category}
-                  isBookmarked={show.isBookmarked}
-                  rating={show.rating}
-                  thumbnailURL={show.thumbnail.regular.small}
-                  title={show.title}
-                  year={show.year}
-                  handleDetails={() => alert(`go to details: ${show.title}`)}
-                />
-              );
-            })}
+            <ShowGrid>
+              {getRecommendedShows().map((show) => {
+                return (
+                  <ShowCard
+                    key={show.title}
+                    handleBookmark={toggleBookmark}
+                    handlePlay={() => alert(`play show: ${show.title}`)}
+                    category={show.category}
+                    isBookmarked={show.isBookmarked}
+                    rating={show.rating}
+                    thumbnailURL={show.thumbnail.regular.small}
+                    title={show.title}
+                    year={show.year}
+                    handleDetails={() => alert(`go to details: ${show.title}`)}
+                  />
+                );
+              })}
+            </ShowGrid>
           </ShowSection>
         </>
       ) : (
