@@ -79,7 +79,7 @@ const ShowCardDetails = ({
 const ShowCardPlayOverlay = ({ handlePlay }: ShowCardPlayOverlayProps) => {
   return (
     <div
-      className="absolute top-0 left-0 h-full w-full cursor-pointer grid place-content-center bg-black bg-opacity-25"
+      className="absolute inset-0 cursor-pointer grid place-content-center bg-black bg-opacity-25"
       onClick={handlePlay}
     >
       <div className="flex gap-2 bg-white bg-opacity-25 rounded-full p-2">
@@ -104,7 +104,10 @@ const ShowCard = ({
   return (
     <div className="relative shrink-0">
       <div className="relative h-[110px] w-[164px] rounded-lg overflow-hidden group/play">
-        <img src={thumbnailURL} />
+        <img
+          className="group-hover/play:scale-110 duration-300"
+          src={thumbnailURL}
+        />
         <div className="hidden group-hover/play:block">
           <ShowCardPlayOverlay handlePlay={handlePlay} />
         </div>
@@ -143,7 +146,10 @@ const TrendingShowCard = ({
   return (
     <div className="relative h-[140px] w-[240px] shrink-0 rounded-lg overflow-hidden">
       <div className="relative group/play">
-        <img src={thumbnailURL} />
+        <img
+          className="group-hover/play:scale-110 duration-300"
+          src={thumbnailURL}
+        />
         <div className="hidden group-hover/play:block">
           <ShowCardPlayOverlay handlePlay={handlePlay} />
         </div>

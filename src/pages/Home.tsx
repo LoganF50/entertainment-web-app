@@ -39,9 +39,6 @@ const Home = () => {
     });
   };
 
-  //TODO create show cards (trending + regular)
-  //TODO different section for 0 results?
-
   return (
     <div>
       <SearchBar
