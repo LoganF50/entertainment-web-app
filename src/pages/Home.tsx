@@ -48,7 +48,7 @@ const Home = () => {
       />
       {search === "" ? (
         <>
-          <ShowSection title={"Trending"} shouldWrap={false}>
+          <ShowSection title={"Trending"}>
             {getTrendingShows().map((show) => {
               return (
                 <TrendingShowCard
