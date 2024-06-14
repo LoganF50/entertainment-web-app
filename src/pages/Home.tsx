@@ -8,38 +8,20 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
   const [search, setSearch] = useState("");
-  const { shows, toggleBookmark } = useShows();
+  const {
+    getTrendingShows,
+    getRecommendedShows,
+    getSearchedShows,
+    shows,
+    toggleBookmark,
+  } = useShows();
   const [displayedShows, setDisplayedShows] = useState(shows);
 
   useEffect(() => {
-    const shownShows = shows.filter((show) => {
-      if (search == "") {
-        return show;
-      }
-
-      if (show.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())) {
-        return show;
-      }
-    });
+    const shownShows = getSearchedShows(shows, search);
 
     setDisplayedShows(shownShows);
   }, [search, shows]);
-
-  const getTrendingShows = () => {
-    return displayedShows.filter((show) => {
-      if (show.isTrending) {
-        return show;
-      }
-    });
-  };
-
-  const getRecommendedShows = () => {
-    return displayedShows.filter((show) => {
-      if (!show.isTrending) {
-        return show;
-      }
-    });
-  };
 
   return (
     <div>
@@ -97,22 +79,24 @@ const Home = () => {
             displayedShows.length === 1 ? "result" : "results"
           } for '${search}'`}
         >
-          {displayedShows.map((show) => {
-            return (
-              <ShowCard
-                key={show.title}
-                thumbnailURL={show.thumbnail.regular.small}
-                isBookmarked={show.isBookmarked}
-                title={show.title}
-                handleBookmark={toggleBookmark}
-                category={show.category}
-                rating={show.rating}
-                year={show.year}
-                handleDetails={() => alert(`go to details: ${show.title}`)}
-                handlePlay={() => alert(`play show: ${show.title}`)}
-              />
-            );
-          })}
+          <ShowGrid>
+            {displayedShows.map((show) => {
+              return (
+                <ShowCard
+                  key={show.title}
+                  thumbnailURL={show.thumbnail.regular.small}
+                  isBookmarked={show.isBookmarked}
+                  title={show.title}
+                  handleBookmark={toggleBookmark}
+                  category={show.category}
+                  rating={show.rating}
+                  year={show.year}
+                  handleDetails={() => alert(`go to details: ${show.title}`)}
+                  handlePlay={() => alert(`play show: ${show.title}`)}
+                />
+              );
+            })}
+          </ShowGrid>
         </ShowSection>
       )}
     </div>
