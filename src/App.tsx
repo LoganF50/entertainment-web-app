@@ -1,4 +1,5 @@
 import PageLayout from "@layouts/PageLayout";
+import { Bookmarked } from "@pages/Bookmarked";
 import { Home } from "@pages/Home";
 import { Movies } from "@pages/Movies";
 import { TVSeries } from "@pages/TVSeries";
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "bookmarked",
-        element: <div>bookmarked</div>,
+        element: <Bookmarked />,
       },
       {
         path: "*",
