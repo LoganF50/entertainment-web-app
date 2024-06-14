@@ -51,8 +51,8 @@ function ShowProvider({ children }: ShowProviderProps) {
   }
 
   function getSearchedShows(shows: Show[], query: string) {
-    return shows.filter(
-      (show) => show.title.toLocaleLowerCase() === query.toLocaleLowerCase()
+    return shows.filter((show) =>
+      show.title.toLocaleLowerCase().includes(query.toLocaleLowerCase())
     );
   }
 
