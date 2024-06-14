@@ -1,6 +1,7 @@
 import PageLayout from "@layouts/PageLayout";
 import { Home } from "@pages/Home";
 import { Movies } from "@pages/Movies";
+import { TVSeries } from "@pages/TVSeries";
 import { ShowProvider } from "@providers/showProvider";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
       },
       {
         path: "tv",
-        element: <div>tv</div>,
+        element: <TVSeries />,
       },
       {
         path: "bookmarked",
