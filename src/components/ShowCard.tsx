@@ -102,7 +102,7 @@ const ShowCard = ({
   handlePlay,
 }: ShowCardProps) => {
   return (
-    <div className="relative shrink-0">
+    <div className="relative w-[164px] shrink-0">
       <div className="relative h-[110px] w-[164px] rounded-lg overflow-hidden group/play">
         <img
           className="group-hover/play:scale-110 duration-300"
