@@ -30,6 +30,40 @@ function ShowProvider({ children }: ShowProviderProps) {
     }
   }, [shows]);
 
+  function getBookmarkedMovies() {
+    return getBookmarkedShows().filter((show) => show.category === "Movie");
+  }
+
+  function getBookmarkedTVSeries() {
+    return getBookmarkedShows().filter((show) => show.category === "TV Series");
+  }
+
+  function getBookmarkedShows() {
+    return shows.filter((show) => show.isBookmarked);
+  }
+
+  function getMovies() {
+    return shows.filter((show) => show.category === "Movie");
+  }
+
+  function getRecommendedShows() {
+    return shows.filter((show) => !show.isTrending);
+  }
+
+  function getSearchedShows(shows: Show[], query: string) {
+    return shows.filter(
+      (show) => show.title.toLocaleLowerCase() === query.toLocaleLowerCase()
+    );
+  }
+
+  function getTrendingShows() {
+    return shows.filter((show) => show.isTrending);
+  }
+
+  function getTVSeries() {
+    return shows.filter((show) => show.category === "TV Series");
+  }
+
   function toggleBookmark(title: string) {
     const newShows = shows.map((show) => {
       if (show.title.toLowerCase() === title.toLowerCase()) {
@@ -41,7 +75,18 @@ function ShowProvider({ children }: ShowProviderProps) {
     setShows(newShows);
   }
 
-  const exposedData = { shows, toggleBookmark };
+  const exposedData = {
+    getBookmarkedMovies,
+    getBookmarkedShows,
+    getBookmarkedTVSeries,
+    getMovies,
+    getRecommendedShows,
+    getSearchedShows,
+    getTrendingShows,
+    getTVSeries,
+    shows,
+    toggleBookmark,
+  };
 
   return (
     <ShowContext.Provider value={exposedData}>{children}</ShowContext.Provider>
