@@ -93,7 +93,7 @@ const Slider = ({
     <div className="flex justify-center overflow-hidden group/slider">
       <NavButton handleClick={handlePrev} direction={NavButtonDirection.left} />
       <div
-        className={`grid grid-flow-col gap-2 grow-1 transition-transform my-0 mx-1 *:aspect-video *:w-full *:overflow-hidden *:m-1`}
+        className={`grid grid-flow-col gap-2 grow transition-transform my-0 mx-1 *:aspect-video *:w-full *:overflow-hidden *:m-1`}
         style={{
           transform: `translateX(${currentPage * -100}%)`,
           gridAutoColumns: `calc(${100 / itemsPerScreen}% - 0.5rem)`,
@@ -127,7 +127,6 @@ const Carousel = ({ children, title }: PropsWithChildren<CarouselProps>) => {
     const resizeObserver = new ResizeObserver((entries) => {
       for (let entry of entries) {
         const { width } = entry.contentRect;
-        console.log({ width });
         if (width < screenSizes.md) {
           setItemsPerScreen(2);
         } else if (width >= screenSizes.md && width < screenSizes.lg) {

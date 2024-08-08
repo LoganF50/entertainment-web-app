@@ -4,6 +4,13 @@ import { IconCategoryMovie } from "@icons/IconCategoryMovie";
 import { IconCategoryTv } from "@icons/IconCategoryTv";
 import { IconPlay } from "@icons/IconPlay";
 
+interface ShowCardProps
+  extends ShowCardBookmarkProps,
+    ShowCardDetailsProps,
+    ShowCardPlayOverlayProps {
+  thumbnailURL: string;
+}
+
 interface ShowCardBookmarkProps {
   isBookmarked: boolean;
   title: string;
@@ -20,13 +27,6 @@ interface ShowCardDetailsProps {
 
 interface ShowCardPlayOverlayProps {
   handlePlay: () => void;
-}
-
-interface ShowCardProps
-  extends ShowCardBookmarkProps,
-    ShowCardDetailsProps,
-    ShowCardPlayOverlayProps {
-  thumbnailURL: string;
 }
 
 const ShowCardBookmark = ({
@@ -102,8 +102,8 @@ const ShowCard = ({
   handlePlay,
 }: ShowCardProps) => {
   return (
-    <div className="relative w-[164px] shrink-0">
-      <div className="relative h-[110px] w-[164px] rounded-lg overflow-hidden group/play">
+    <div className="relative shrink-0">
+      <div className="relative rounded-lg overflow-hidden group/play aspect-video">
         <img
           className="group-hover/play:scale-110 duration-300"
           src={thumbnailURL}
@@ -144,10 +144,10 @@ const TrendingShowCard = ({
   handlePlay,
 }: ShowCardProps) => {
   return (
-    <div className="relative h-[140px] w-[240px] shrink-0 rounded-lg overflow-hidden">
-      <div className="relative group/play">
+    <div className="relative rounded-lg overflow-hidden">
+      <div className="absolute inset-0 group/play">
         <img
-          className="group-hover/play:scale-110 duration-300"
+          className="h-full w-full object-cover group-hover/play:scale-110 duration-300"
           src={thumbnailURL}
         />
         <div className="hidden group-hover/play:block">
