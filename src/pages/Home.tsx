@@ -1,6 +1,6 @@
 import { SearchBar } from "@components/SearchBar";
 import { ShowCard, TrendingShowCard } from "@components/ShowCard";
-import { ShowCarousel } from "@components/ShowCarousel";
+import { Carousel } from "@components/Carousel";
 import { ShowGrid } from "@components/ShowGrid";
 import { ShowSection } from "@components/ShowSection";
 import { useShows } from "@hooks/useShows";
@@ -32,26 +32,24 @@ const Home = () => {
       />
       {search === "" ? (
         <>
-          <ShowSection title={"Trending"}>
-            <ShowCarousel translateAmount={300}>
-              {getTrendingShows().map((show) => {
-                return (
-                  <TrendingShowCard
-                    key={show.title}
-                    handleBookmark={toggleBookmark}
-                    handlePlay={() => alert(`play show: ${show.title}`)}
-                    category={show.category}
-                    isBookmarked={show.isBookmarked}
-                    rating={show.rating}
-                    thumbnailURL={show.thumbnail.trending!.small}
-                    title={show.title}
-                    year={show.year}
-                    handleDetails={() => alert(`go to details: ${show.title}`)}
-                  />
-                );
-              })}
-            </ShowCarousel>
-          </ShowSection>
+          <Carousel title={"Trending"}>
+            {getTrendingShows().map((show) => {
+              return (
+                <TrendingShowCard
+                  key={show.title}
+                  handleBookmark={toggleBookmark}
+                  handlePlay={() => alert(`play show: ${show.title}`)}
+                  category={show.category}
+                  isBookmarked={show.isBookmarked}
+                  rating={show.rating}
+                  thumbnailURL={show.thumbnail.trending!.small}
+                  title={show.title}
+                  year={show.year}
+                  handleDetails={() => alert(`go to details: ${show.title}`)}
+                />
+              );
+            })}
+          </Carousel>
           <ShowSection title={"Recommended for you"}>
             <ShowGrid>
               {getRecommendedShows().map((show) => {
