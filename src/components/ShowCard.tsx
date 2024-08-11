@@ -105,7 +105,7 @@ const ShowCard = ({
     <div className="relative shrink-0">
       <div className="relative rounded-lg overflow-hidden group/play aspect-video">
         <img
-          className="group-hover/play:scale-110 duration-300"
+          className="group-hover/play:scale-110 duration-300 w-full"
           src={thumbnailURL}
         />
         <div className="hidden group-hover/play:block">

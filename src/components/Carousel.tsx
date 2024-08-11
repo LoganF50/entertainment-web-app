@@ -32,6 +32,7 @@ interface SliderProps {
 }
 
 enum screenSizes {
+  xs = 500,
   sm = 640,
   md = 768,
   lg = 1024,
@@ -127,9 +128,11 @@ const Carousel = ({ children, title }: PropsWithChildren<CarouselProps>) => {
     const resizeObserver = new ResizeObserver((entries) => {
       for (let entry of entries) {
         const { width } = entry.contentRect;
-        if (width < screenSizes.md) {
+        if (width < screenSizes.xs) {
+          setItemsPerScreen(1);
+        } else if (width < screenSizes.md) {
           setItemsPerScreen(2);
-        } else if (width >= screenSizes.md && width < screenSizes.lg) {
+        } else if (width < screenSizes.lg) {
           setItemsPerScreen(3);
         } else {
           setItemsPerScreen(4);
