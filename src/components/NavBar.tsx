@@ -8,11 +8,11 @@ import NavBarLink from "./NavBarLink";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between p-4 bg-app-blue">
-      <Link to={"/"} className="text-app-red">
+    <nav className="flex lg:flex-col md:m-4 md:rounded-lg items-center justify-between p-4 bg-app-blue">
+      <Link to={"/"} className="lg:shrink lg:pb-16 text-app-red">
         <IconLogo />
       </Link>
-      <div className="flex gap-5">
+      <div className="flex lg:flex-col lg:grow justify-self-start gap-5">
         <NavBarLink to={"/"}>
           <IconNavHome />
         </NavBarLink>

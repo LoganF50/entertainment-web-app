@@ -117,8 +117,8 @@ const Carousel = ({ children, title }: PropsWithChildren<CarouselProps>) => {
   const itemCount = Array.isArray(children)
     ? children.length
     : children
-    ? 1
-    : 0;
+      ? 1
+      : 0;
   const pageCount = Math.ceil(itemCount / itemsPerScreen);
 
   useLayoutEffect(() => {
