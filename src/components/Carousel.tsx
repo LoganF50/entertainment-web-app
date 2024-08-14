@@ -127,7 +127,7 @@ const Carousel = ({ children, title }: PropsWithChildren<CarouselProps>) => {
 
     const resizeObserver = new ResizeObserver((entries) => {
       for (let entry of entries) {
-        let newItemsPerScreen = itemsPerScreen;
+        let newItemsPerScreen;
         const { width } = entry.contentRect;
         if (width < screenSizes.xs) {
           newItemsPerScreen = 1;
@@ -141,8 +141,12 @@ const Carousel = ({ children, title }: PropsWithChildren<CarouselProps>) => {
 
         if (newItemsPerScreen !== itemsPerScreen) {
           setItemsPerScreen(newItemsPerScreen);
-          const maxPage = Math.ceil(itemCount / newItemsPerScreen) - 1;
+          const maxPage = Math.max(
+            Math.ceil(itemCount / newItemsPerScreen) - 1,
+            0
+          );
           if (currentPage > maxPage) {
+            console.log({ maxPage });
             setCurrentPage(maxPage);
           }
         }
