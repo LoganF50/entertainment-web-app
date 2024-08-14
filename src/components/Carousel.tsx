@@ -127,15 +127,24 @@ const Carousel = ({ children, title }: PropsWithChildren<CarouselProps>) => {
 
     const resizeObserver = new ResizeObserver((entries) => {
       for (let entry of entries) {
+        let newItemsPerScreen = itemsPerScreen;
         const { width } = entry.contentRect;
         if (width < screenSizes.xs) {
-          setItemsPerScreen(1);
+          newItemsPerScreen = 1;
         } else if (width < screenSizes.md) {
-          setItemsPerScreen(2);
+          newItemsPerScreen = 2;
         } else if (width < screenSizes.lg) {
-          setItemsPerScreen(3);
+          newItemsPerScreen = 3;
         } else {
-          setItemsPerScreen(4);
+          newItemsPerScreen = 4;
+        }
+
+        if (newItemsPerScreen !== itemsPerScreen) {
+          setItemsPerScreen(newItemsPerScreen);
+          const maxPage = Math.ceil(itemCount / newItemsPerScreen) - 1;
+          if (currentPage > maxPage) {
+            setCurrentPage(maxPage);
+          }
         }
       }
     });
@@ -145,7 +154,7 @@ const Carousel = ({ children, title }: PropsWithChildren<CarouselProps>) => {
     return () => {
       resizeObserver.unobserve(slider);
     };
-  }, []);
+  }, [currentPage, itemsPerScreen]);
 
   const handleNext = () => {
     const newCurrentPage = currentPage + 1;
