@@ -9,7 +9,7 @@ const ShowSection = ({
   title,
 }: PropsWithChildren<ShowSectionProps>) => {
   return (
-    <div className="flex flex-col gap-4 py-2">
+    <div className="flex flex-col gap-6 py-4">
       <h1 className="text-heading-md">{title}</h1>
       {children}
     </div>

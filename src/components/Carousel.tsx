@@ -42,8 +42,8 @@ enum screenSizes {
 
 const Header = ({ title, pageCount, currentPage }: HeaderProps) => {
   return (
-    <div className="flex justify-between items-center py-2 px-14">
-      <div className="text-3xl">{title}</div>
+    <div className="flex justify-between items-center py-4">
+      <div className="text-heading-md">{title}</div>
       <ProgressBar pageCount={pageCount} currentPage={currentPage} />
     </div>
   );
@@ -146,7 +146,6 @@ const Carousel = ({ children, title }: PropsWithChildren<CarouselProps>) => {
             0
           );
           if (currentPage > maxPage) {
-            console.log({ maxPage });
             setCurrentPage(maxPage);
           }
         }
