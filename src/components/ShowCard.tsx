@@ -59,7 +59,7 @@ const ShowCardDetails = ({
 
   return (
     <div onClick={handleDetails} className="flex flex-col cursor-pointer">
-      <div className="flex items-center gap-2 text-body-sm">
+      <div className="flex items-center gap-2 text-[12px] md:text-body-md opacity-75">
         <div>{year}</div>
         <DotSeparator />
         <div className="flex items-center gap-1">
@@ -71,7 +71,7 @@ const ShowCardDetails = ({
         <DotSeparator />
         <div>{rating}</div>
       </div>
-      <div className="text-heading-xs">{title}</div>
+      <div className="text-[15px] font-medium md:text-heading-sm">{title}</div>
     </div>
   );
 };
@@ -103,9 +103,9 @@ const ShowCard = ({
 }: ShowCardProps) => {
   return (
     <div className="relative shrink-0">
-      <div className="relative rounded-lg overflow-hidden group/play aspect-video">
+      <div className="relative rounded-lg overflow-hidden group/play aspect-[14/9]">
         <img
-          className="group-hover/play:scale-110 duration-300 w-full"
+          className="group-hover/play:scale-110 duration-300 w-full h-full"
           src={thumbnailURL}
         />
         <div className="hidden group-hover/play:block">

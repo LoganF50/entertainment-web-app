@@ -8,11 +8,11 @@ import NavBarLink from "./NavBarLink";
 
 const Navbar = () => {
   return (
-    <nav className="flex lg:flex-col md:m-4 md:rounded-lg items-center justify-between p-4 bg-app-blue">
-      <Link to={"/"} className="lg:shrink lg:pb-16 text-app-red">
+    <nav className="flex xl:flex-col md:mx-6 md:mt-6 md:rounded-lg xl:rounded-2xl xl:mb-6 items-center justify-between p-6 bg-app-blue">
+      <Link to={"/"} className="xl:shrink xl:pb-16 text-app-red">
         <IconLogo />
       </Link>
-      <div className="flex lg:flex-col lg:grow justify-self-start gap-5">
+      <div className="flex xl:flex-col xl:grow justify-self-start gap-7">
         <NavBarLink to={"/"}>
           <IconNavHome />
         </NavBarLink>
@@ -28,7 +28,7 @@ const Navbar = () => {
       </div>
       <Link to={"/profile"}>
         <img
-          className="w-7 rounded-full border border-app-white"
+          className="w-8 md:w-10 xl:w-12 rounded-full border border-app-white"
           src="assets/image-avatar.png"
           alt="profile"
         />

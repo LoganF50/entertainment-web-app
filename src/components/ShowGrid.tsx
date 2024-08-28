@@ -4,7 +4,7 @@ interface ShowGridProps {}
 
 const ShowGrid = ({ children }: PropsWithChildren<ShowGridProps>) => {
   return (
-    <div className="gap-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div className="gap-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-6">
       {children}
     </div>
   );

@@ -42,8 +42,8 @@ enum screenSizes {
 
 const Header = ({ title, pageCount, currentPage }: HeaderProps) => {
   return (
-    <div className="flex justify-between items-center py-4">
-      <div className="text-heading-md">{title}</div>
+    <div className="flex justify-between items-center py-2">
+      <div className="text-[20px] font-light md:text-heading-lg">{title}</div>
       <ProgressBar pageCount={pageCount} currentPage={currentPage} />
     </div>
   );
@@ -53,7 +53,7 @@ const NavButton = ({ handleClick, direction }: NavButtonProps) => {
   return (
     <button
       tabIndex={0}
-      className={`border-none grow-0 shrink-0 bg-white bg-opacity-10 z-10 px-0 py-2 flex items-center justify-center transition-colors group overflow-hidden hover:bg-opacity-40 focus:bg-opacity-40 my-1 mx-0`}
+      className={`border-none grow-0 shrink-0 bg-white bg-opacity-10 z-10 px-0 py-2 flex items-center justify-center transition-colors group overflow-hidden hover:bg-opacity-40 focus:bg-opacity-40 my-2 mx-0`}
       onClick={handleClick}
     >
       {direction === NavButtonDirection.left ? (
@@ -73,7 +73,7 @@ const ProgressBar = ({ pageCount, currentPage }: ProgressBarProps) => {
         return (
           <div
             key={i}
-            className={`shrink-0 grow-0 basis-6 min-w-6 h-2 bg-white ${
+            className={`shrink-0 grow-0 min-w-4 md:min-w-6 h-2 bg-white ${
               isActive ? "bg-opacity-90" : "bg-opacity-50"
             }`}
           />
@@ -94,10 +94,10 @@ const Slider = ({
     <div className="flex justify-center overflow-hidden group/slider">
       <NavButton handleClick={handlePrev} direction={NavButtonDirection.left} />
       <div
-        className={`grid grid-flow-col gap-2 grow transition-transform my-0 mx-1 *:aspect-video *:w-full *:overflow-hidden *:m-1`}
+        className={`grid grid-flow-col gap-4 grow transition-transform my-0 mx-2 *:aspect-video *:w-full *:overflow-hidden *:m-2`}
         style={{
           transform: `translateX(${currentPage * -100}%)`,
-          gridAutoColumns: `calc(${100 / itemsPerScreen}% - 0.5rem)`,
+          gridAutoColumns: `calc(${100 / itemsPerScreen}% - 1rem)`,
         }}
       >
         {children}
