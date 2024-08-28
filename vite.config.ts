@@ -18,7 +18,7 @@ const aliases = [
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "entertainment-web-app",
+  base: "/entertainment-web-app/",
   resolve: {
     alias: aliases.map((alias) => ({
       find: `@${alias[0]}`,
