@@ -6,34 +6,37 @@ import { TVSeries } from "@pages/TVSeries";
 import { ShowProvider } from "@providers/showProvider";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <PageLayout />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: "movies",
-        element: <Movies />,
-      },
-      {
-        path: "tv",
-        element: <TVSeries />,
-      },
-      {
-        path: "bookmarked",
-        element: <Bookmarked />,
-      },
-      {
-        path: "*",
-        element: <div>not found</div>,
-      },
-    ],
-  },
-]);
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <PageLayout />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: "movies",
+          element: <Movies />,
+        },
+        {
+          path: "tv",
+          element: <TVSeries />,
+        },
+        {
+          path: "bookmarked",
+          element: <Bookmarked />,
+        },
+        {
+          path: "*",
+          element: <div>not found</div>,
+        },
+      ],
+    },
+  ],
+  { basename: "/entertainment-wep-app/" }
+);
 
 function App() {
   return (
