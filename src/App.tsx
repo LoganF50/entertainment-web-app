@@ -35,7 +35,7 @@ const router = createBrowserRouter(
       ],
     },
   ],
-  { basename: "/entertainment-wep-app/" }
+  { basename: "/entertainment-web-app" }
 );
 
 function App() {

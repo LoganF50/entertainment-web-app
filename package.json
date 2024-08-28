@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://LoganF50.github.io/entertainment-web-app/",
+  "homepage": "https://LoganF50.github.io/entertainment-web-app",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
