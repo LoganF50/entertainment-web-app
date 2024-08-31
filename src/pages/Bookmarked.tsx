@@ -43,7 +43,7 @@ const Bookmarked = () => {
                     category={show.category}
                     isBookmarked={show.isBookmarked}
                     rating={show.rating}
-                    thumbnailURL={show.thumbnail.regular.small}
+                    thumbnailURL={show.thumbnail.regular.large}
                     title={show.title}
                     year={show.year}
                     handleDetails={() => alert(`go to details: ${show.title}`)}
@@ -63,7 +63,7 @@ const Bookmarked = () => {
                     category={show.category}
                     isBookmarked={show.isBookmarked}
                     rating={show.rating}
-                    thumbnailURL={show.thumbnail.regular.small}
+                    thumbnailURL={show.thumbnail.regular.large}
                     title={show.title}
                     year={show.year}
                     handleDetails={() => alert(`go to details: ${show.title}`)}
@@ -84,7 +84,7 @@ const Bookmarked = () => {
               return (
                 <ShowCard
                   key={show.title}
-                  thumbnailURL={show.thumbnail.regular.small}
+                  thumbnailURL={show.thumbnail.regular.large}
                   isBookmarked={show.isBookmarked}
                   title={show.title}
                   handleBookmark={toggleBookmark}
