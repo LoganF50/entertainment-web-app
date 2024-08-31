@@ -35,7 +35,7 @@ const router = createBrowserRouter(
       ],
     },
   ],
-  { basename: "/entertainment-web-app" }
+  { basename: import.meta.env.BASE_URL }
 );
 
 function App() {

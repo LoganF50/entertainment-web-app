@@ -106,7 +106,7 @@ const ShowCard = ({
       <div className="relative rounded-lg overflow-hidden group/play aspect-[14/9]">
         <img
           className="group-hover/play:scale-110 duration-300 w-full h-full"
-          src={thumbnailURL}
+          src={`${import.meta.env.BASE_URL}${thumbnailURL}`}
         />
         <div className="hidden group-hover/play:block">
           <ShowCardPlayOverlay handlePlay={handlePlay} />
@@ -148,7 +148,7 @@ const TrendingShowCard = ({
       <div className="absolute inset-0 group/play">
         <img
           className="h-full w-full object-cover group-hover/play:scale-110 duration-300"
-          src={thumbnailURL}
+          src={`${import.meta.env.BASE_URL}${thumbnailURL}`}
         />
         <div className="hidden group-hover/play:block">
           <ShowCardPlayOverlay handlePlay={handlePlay} />

@@ -29,7 +29,7 @@ const Navbar = () => {
       <Link to={"/profile"}>
         <img
           className="w-8 md:w-10 xl:w-12 rounded-full border border-app-white"
-          src="assets/image-avatar.png"
+          src="/entertainment-web-app/assets/image-avatar.png"
           alt="profile"
         />
       </Link>
